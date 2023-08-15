@@ -90,3 +90,23 @@ const nav = document.querySelector(".nav"),
                     allSection[i].classList.toggle("open");
                 }
             }
+
+
+            /////   Download cv code
+            function downloadPDF(url, filename) {
+                const anchor = document.createElement('a');
+                anchor.href = url;
+                anchor.download = filename;
+                anchor.style.display = 'none';
+                document.body.appendChild(anchor);
+                anchor.click();
+                document.body.removeChild(anchor);
+              }
+          
+              // Attach the downloadPDF function to the button click event
+              const downloadButton = document.getElementById('downloadButton');
+              downloadButton.addEventListener('click', function() {
+                const pdfUrl = 'https://drive.google.com/file/d/1v6bD2t5TdklaghYY6KMsCLl_OMoqP6R2/view?usp=sharing';
+                const pdfFilename = 'document.pdf';
+                downloadPDF(pdfUrl, pdfFilename);
+              });
